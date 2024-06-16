@@ -42,7 +42,7 @@ MÁSODIK
 	            a = i
 	    print(f'5. feladat: A legkisebb területű település:\n\tTelepülés neve: {a.telepules}\n\tTerülete: {a.terulet} ha')
 	
-	def kerses:szamolas() -> None:
+	def kersesszamolas() -> None:
 	    a = 0
 	    for i in telepulesek_listaja:
 	        if i.rang == 'nagyközség':
@@ -149,58 +149,20 @@ RANDOM.CHOICE
 	import random
 	
 	
-	atmero = int(input('Kérem a kör átmérőjét:'))
+	d = int(input('Kérem a kör átmérőjét:'))
 	
 	allatok = ['elefánt', 'macska', 'kutya', 'zsiráf', 'oroszlán']
 	randomallat = random.choice(allatok)
 	
-	def korszamitas(atmero):
-	    sugar = atmero / 2
-	    print(sugar)
-	    terulet = math.pi * sugar * sugar
+	def korszamitas(d):
+	    r = d / 2
+	    print(r)
+	    terulet = math.pi * r * r
 	    return terulet
-	
-	print(f'Körre festett állat: {randomallat}')
-	print(f'{korszamitas(atmero):.2f}  m^2')
+
+	print(f'{korszamitas(d):.2f}  cm^2 és az állat rajta {randomallat}')
 
 
-datum: !!!!!!!!!!!!!!!!!!!!!!!!
-	
-	max_napok = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-	
-	def number_input(szoveg, maximum):
-	    szam = 0
-	    while szam <= 0 or szam > maximum:
-	        ertek = input(szoveg)
-	        try:
-	            szam = int(ertek)
-	        except:
-	            pass
-	    return szam
-	
-	def datum_kulonbseg(ev1, honap1, nap1, ev2, honap2, nap2):
-	    napok1 = ev1 * 365
-	    for i in range(0, honap1):
-	        napok1 += max_napok[i]
-	    napok1 += nap1
-
-    napok2 = ev1 * 365
-    for i in range(0, honap2):
-        napok2 += max_napok[i]
-    napok2 += nap2
-
-    return abs(napok1 - napok2)
-
-
-	datum_ev = number_input('Kérem az első dátum évét: ', 2030)
-	datum_honap = number_input('Kérem az első dátum hónapját', 12)
-	datum_nap = number_input('Kérem az első dátum napját: ', max_napok[datum_honap-1])
-	
-	datum_ev2 = number_input('Kérem a második dátum évét: ', 2030)
-	datum_honap2 = number_input('Kérem a második dátum hónapját', 12)
-	datum_nap2 = number_input('Kérem a második napját: ', max_napok[datum_honap2 - 1])
-	
-	print(f'A két dátum közötti különbség: {datum_kulonbseg(datum_ev, datum_honap, datum_nap, datum_ev2, datum_honap2, datum_nap2)}')
 
 
 
