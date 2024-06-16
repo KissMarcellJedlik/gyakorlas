@@ -99,36 +99,70 @@ DATETIME:
 	
  
  	import datetime
-	
-	def fuggveny(szoveg, maximum):
-	    szam = 0
-	    while szam <= 0 or szam > maximum:
+
+	# Függvény a felhasználói bemenet validálásához
+	def fuggveny(szoveg, maxiszam):
+	    while True:
 	        try:
 	            szam = int(input(szoveg))
-	        except:
-	            print("Ujraa")
-	    return szam
+	            if 1 <= szam > maxiszam:  # Ellenőrzi, hogy a szám az elfogadható tartományban van-e
+	                return szam
+	            else:
+	                print(f"A számnak 1 és {maxiszam} között kell lennie.")
+	        except ValueError:
+	            print("Érvénytelen bemenet. Kérlek, adj meg egy számot!")
 	
+	# Függvény a két dátum közötti napok számának kiszámításához
 	def masikfuggveny(ev1, honap1, nap1, ev2, honap2, nap2):
-	    datum1 = datetime.date(ev1, honap1, nap1)
-	    datum2 = datetime.date(ev2, honap2, nap2)
-	    return (datum2 - datum1).days
+	    try:
+	        datum1 = datetime.date(ev1, honap1, nap1)
+	        datum2 = datetime.date(ev2, honap2, nap2)
+	        return abs((datum2 - datum1).days)  # A különbség abszolút értéke
+	    except ValueError as e:
+	        print(f"Hiba a dátumokkal: {e}")
+	        return None
 	
-	ev1 = fuggveny("Add meg az első évet: ", 2024)
-	honap1 = fuggveny("Add meg az első hónapot: ", 12)
-	nap1 = fuggveny("Add meg az első napot: ", 31)
+	# Bemeneti adatok bekérése
+	ev1 = fuggveny("Add meg az első évet (1-9999): ", 9999)
+	honap1 = fuggveny("Add meg az első hónapot (1-12): ", 12)
+	nap1 = fuggveny("Add meg az első napot (1-31): ", 31)
 	
-	ev2 = fuggveny("Add meg az második évet: ", 2024)
-	honap2 = fuggveny("Add meg az második hónapot: ", 12)
-	nap2 = fuggveny("Add meg az második napot: ", 31)
+	ev2 = fuggveny("Add meg a második évet (1-9999): ", 9999)
+	honap2 = fuggveny("Add meg a második hónapot (1-12): ", 12)
+	nap2 = fuggveny("Add meg a második napot (1-31): ", 31)
 	
-	print(f"{ev1}.{honap1}.{nap1} illetve {ev2}.{honap2}.{nap2} között eltelt napok számok: {masikfuggveny(ev1, honap1, nap1, ev2, honap2, nap2)}")
+	# Napok számának kiszámítása és kiírása
+	napok_szama = masikfuggveny(ev1, honap1, nap1, ev2, honap2, nap2)
+	if napok_szama is not None:
+	    print(f"{ev1}.{honap1}.{nap1} és {ev2}.{honap2}.{nap2} között eltelt napok száma: {napok_szama} nap.")
+	
 
 
 ÁTVÁLTÁS:
 
 	def atvaltas(self) -> None:
     return round(self.passzoltyard * 0.9144)
+
+RANDOM.CHOICE
+	
+ 	import math
+	import random
+	
+	
+	atmero = int(input('Kérem a kör átmérőjét:'))
+	
+	allatok = ['elefánt', 'macska', 'kutya', 'zsiráf', 'oroszlán']
+	randomallat = random.choice(allatok)
+	
+	def korszamitas(atmero):
+	    sugar = atmero / 2
+	    print(sugar)
+	    terulet = math.pi * sugar * sugar
+	    return terulet
+	
+	print(f'Körre festett állat: {randomallat}')
+	print(f'{korszamitas(atmero):.2f}  m^2')
+
 
 datum: !!!!!!!!!!!!!!!!!!!!!!!!
 	
