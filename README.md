@@ -105,7 +105,7 @@ DATETIME:
 	    while True:
 	        try:
 	            szam = int(input(szoveg))
-	            if 1 <= szam > maxiszam:  # Ellenőrzi, hogy a szám az elfogadható tartományban van-e
+	            if 1 <= szam <= maxiszam:  # Ellenőrzi, hogy a szám az elfogadható tartományban van-e
 	                return szam
 	            else:
 	                print(f"A számnak 1 és {maxiszam} között kell lennie.")
