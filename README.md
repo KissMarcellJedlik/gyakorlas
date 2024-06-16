@@ -95,6 +95,36 @@ DICTIONARY:
         print(f"\t{egyetem} - {jatekosok_szama}\t")
 
 
+DATETIME:
+	
+ 
+ 	import datetime
+	
+	def fuggveny(szoveg, maximum):
+	    szam = 0
+	    while szam <= 0 or szam > maximum:
+	        try:
+	            szam = int(input(szoveg))
+	        except:
+	            print("Ujraa")
+	    return szam
+	
+	def masikfuggveny(ev1, honap1, nap1, ev2, honap2, nap2):
+	    datum1 = datetime.date(ev1, honap1, nap1)
+	    datum2 = datetime.date(ev2, honap2, nap2)
+	    return (datum2 - datum1).days
+	
+	ev1 = fuggveny("Add meg az első évet: ", 2024)
+	honap1 = fuggveny("Add meg az első hónapot: ", 12)
+	nap1 = fuggveny("Add meg az első napot: ", 31)
+	
+	ev2 = fuggveny("Add meg az második évet: ", 2024)
+	honap2 = fuggveny("Add meg az második hónapot: ", 12)
+	nap2 = fuggveny("Add meg az második napot: ", 31)
+	
+	print(f"{ev1}.{honap1}.{nap1} illetve {ev2}.{honap2}.{nap2} között eltelt napok számok: {masikfuggveny(ev1, honap1, nap1, ev2, honap2, nap2)}")
+
+
 ÁTVÁLTÁS:
 
 	def atvaltas(self) -> None:
